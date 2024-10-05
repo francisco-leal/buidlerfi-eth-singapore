@@ -13,28 +13,55 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
-      name: "Ownable",
+      name: "AccessControl",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Ownable__factory>;
+    ): Promise<Contracts.AccessControl__factory>;
     getContractFactory(
-      name: "BuidlerFiSharesV1",
+      name: "IAccessControl",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.BuidlerFiSharesV1__factory>;
+    ): Promise<Contracts.IAccessControl__factory>;
+    getContractFactory(
+      name: "ERC165",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC165__factory>;
+    getContractFactory(
+      name: "IERC165",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC165__factory>;
+    getContractFactory(
+      name: "BuilderFiAlphaV1",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.BuilderFiAlphaV1__factory>;
     getContractFactory(
       name: "BuilderFiV1",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.BuilderFiV1__factory>;
 
     getContractAt(
-      name: "Ownable",
+      name: "AccessControl",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.Ownable>;
+    ): Promise<Contracts.AccessControl>;
     getContractAt(
-      name: "BuidlerFiSharesV1",
+      name: "IAccessControl",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.BuidlerFiSharesV1>;
+    ): Promise<Contracts.IAccessControl>;
+    getContractAt(
+      name: "ERC165",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC165>;
+    getContractAt(
+      name: "IERC165",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC165>;
+    getContractAt(
+      name: "BuilderFiAlphaV1",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.BuilderFiAlphaV1>;
     getContractAt(
       name: "BuilderFiV1",
       address: string,

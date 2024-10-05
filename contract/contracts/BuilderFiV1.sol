@@ -25,7 +25,8 @@ contract BuilderFiV1 is AccessControl {
     uint256 protocolEthAmount,
     uint256 subjectEthAmount,
     uint256 hodlerEthAmount,
-    uint256 supply
+    uint256 supply,
+    uint256 nextPrice
   );
 
   // Builder => (Holder => Balance)
@@ -112,6 +113,7 @@ contract BuilderFiV1 is AccessControl {
     if(supply == 0 && sharesSubject != msg.sender) revert OnlySharesSubjectCanBuyFirstShare();
 
     uint256 price = getPrice(supply, 1);
+    uint256 nextPrice = getPrice(supply + 1, 1);
     uint256 protocolFee = price * protocolFeePercent / 1 ether;
     uint256 subjectFee = price * subjectFeePercent / 1 ether;
     uint256 hodlerFee = price * hodlerFeePercent / 1 ether;
@@ -128,7 +130,8 @@ contract BuilderFiV1 is AccessControl {
       protocolFee, 
       subjectFee, 
       hodlerFee,
-      supply + 1
+      supply + 1,
+      nextPrice
     );
 
     (bool success1, ) = protocolFeeDestination.call{value: protocolFee}("");
@@ -145,6 +148,11 @@ contract BuilderFiV1 is AccessControl {
     if(builderCardsBalance[sharesSubject][msg.sender] < amount) revert InsufficientShares();
 
     uint256 price = getPrice(supply - amount, amount);
+    uint256 nextPrice = 0;
+
+    if (price > 0) {
+      nextPrice = getPrice(supply - amount - 1, 1);
+    }
     uint256 protocolFee = price * protocolFeePercent / 1 ether;
     uint256 subjectFee = price * subjectFeePercent / 1 ether;
     uint256 hodlerFee = price * hodlerFeePercent / 1 ether;
@@ -160,7 +168,8 @@ contract BuilderFiV1 is AccessControl {
       protocolFee,
       subjectFee,
       hodlerFee,
-      supply - amount
+      supply - amount,
+      nextPrice
     );
     (bool success1, ) = msg.sender.call{value: price - protocolFee - subjectFee - hodlerFee}("");
     (bool success2, ) = protocolFeeDestination.call{value: protocolFee}("");

@@ -14,19 +14,9 @@ import type {
   Signer,
   utils,
 } from "ethers";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
+import type { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
 import type { Listener, Provider } from "@ethersproject/providers";
-import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../../common";
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from "../../common";
 
 export interface BuilderFiV1Interface extends utils.Interface {
   functions: {
@@ -81,187 +71,82 @@ export interface BuilderFiV1Interface extends utils.Interface {
       | "supporterAddressArray"
       | "supporterKeysArray"
       | "supporterNumber"
-      | "transferOwnership"
+      | "transferOwnership",
   ): FunctionFragment;
 
-  encodeFunctionData(
-    functionFragment: "buyShares",
-    values: [PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getAtMostTopTenSupporters",
-    values: [PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getBuyPrice",
-    values: [PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getBuyPriceAfterFee",
-    values: [PromiseOrValue<string>]
-  ): string;
+  encodeFunctionData(functionFragment: "buyShares", values: [PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: "getAtMostTopTenSupporters", values: [PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: "getBuyPrice", values: [PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: "getBuyPriceAfterFee", values: [PromiseOrValue<string>]): string;
   encodeFunctionData(
     functionFragment: "getPrice",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
     functionFragment: "getSellPrice",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
     functionFragment: "getSellPriceAfterFee",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
-  encodeFunctionData(
-    functionFragment: "hodlerFeePercent",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "hodlerFeePercent", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "protocolFeeDestination",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "protocolFeePercent",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceOwnership",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "protocolFeeDestination", values?: undefined): string;
+  encodeFunctionData(functionFragment: "protocolFeePercent", values?: undefined): string;
+  encodeFunctionData(functionFragment: "renounceOwnership", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "sellShares",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
-  encodeFunctionData(
-    functionFragment: "setFeeDestination",
-    values: [PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setHodlerFeePercent",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setProtocolFeePercent",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setSubjectFeePercent",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
+  encodeFunctionData(functionFragment: "setFeeDestination", values: [PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: "setHodlerFeePercent", values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: "setProtocolFeePercent", values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: "setSubjectFeePercent", values: [PromiseOrValue<BigNumberish>]): string;
   encodeFunctionData(
     functionFragment: "sharesBalance",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
+    values: [PromiseOrValue<string>, PromiseOrValue<string>],
   ): string;
-  encodeFunctionData(
-    functionFragment: "sharesSupply",
-    values: [PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "subjectFeePercent",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "sharesSupply", values: [PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: "subjectFeePercent", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "supporterAddressArray",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
     functionFragment: "supporterKeysArray",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
     functionFragment: "supporterNumber",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
+    values: [PromiseOrValue<string>, PromiseOrValue<string>],
   ): string;
-  encodeFunctionData(
-    functionFragment: "transferOwnership",
-    values: [PromiseOrValue<string>]
-  ): string;
+  encodeFunctionData(functionFragment: "transferOwnership", values: [PromiseOrValue<string>]): string;
 
   decodeFunctionResult(functionFragment: "buyShares", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getAtMostTopTenSupporters",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getBuyPrice",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getBuyPriceAfterFee",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "getAtMostTopTenSupporters", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getBuyPrice", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getBuyPriceAfterFee", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "getPrice", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getSellPrice",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getSellPriceAfterFee",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "hodlerFeePercent",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "getSellPrice", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getSellPriceAfterFee", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "hodlerFeePercent", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "protocolFeeDestination",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "protocolFeePercent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "protocolFeeDestination", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "protocolFeePercent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "renounceOwnership", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "sellShares", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "setFeeDestination",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setHodlerFeePercent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setProtocolFeePercent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setSubjectFeePercent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "sharesBalance",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "sharesSupply",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "subjectFeePercent",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supporterAddressArray",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supporterKeysArray",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supporterNumber",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "transferOwnership",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "setFeeDestination", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setHodlerFeePercent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setProtocolFeePercent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setSubjectFeePercent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "sharesBalance", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "sharesSupply", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "subjectFeePercent", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "supporterAddressArray", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "supporterKeysArray", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "supporterNumber", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "transferOwnership", data: BytesLike): Result;
 
   events: {
     "OwnershipTransferred(address,address)": EventFragment;
@@ -276,13 +161,9 @@ export interface OwnershipTransferredEventObject {
   previousOwner: string;
   newOwner: string;
 }
-export type OwnershipTransferredEvent = TypedEvent<
-  [string, string],
-  OwnershipTransferredEventObject
->;
+export type OwnershipTransferredEvent = TypedEvent<[string, string], OwnershipTransferredEventObject>;
 
-export type OwnershipTransferredEventFilter =
-  TypedEventFilter<OwnershipTransferredEvent>;
+export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
 
 export interface TradeEventObject {
   trader: string;
@@ -296,17 +177,7 @@ export interface TradeEventObject {
   supply: BigNumber;
 }
 export type TradeEvent = TypedEvent<
-  [
-    string,
-    string,
-    boolean,
-    BigNumber,
-    BigNumber,
-    BigNumber,
-    BigNumber,
-    BigNumber,
-    BigNumber
-  ],
+  [string, string, boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber],
   TradeEventObject
 >;
 
@@ -322,16 +193,12 @@ export interface BuilderFiV1 extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -341,40 +208,34 @@ export interface BuilderFiV1 extends BaseContract {
   functions: {
     buyShares(
       sharesSubject: PromiseOrValue<string>,
-      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     getAtMostTopTenSupporters(
       sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string[], BigNumber]>;
 
-    getBuyPrice(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    getBuyPrice(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    getBuyPriceAfterFee(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    getBuyPriceAfterFee(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     getPrice(
       supply: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     getSellPrice(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     getSellPriceAfterFee(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     hodlerFeePercent(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -385,109 +246,98 @@ export interface BuilderFiV1 extends BaseContract {
 
     protocolFeePercent(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
     sellShares(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setFeeDestination(
       _feeDestination: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setHodlerFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setProtocolFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setSubjectFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     sharesBalance(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
-    sharesSupply(
-      arg0: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    sharesSupply(arg0: PromiseOrValue<string>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     subjectFeePercent(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     supporterAddressArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string]>;
 
     supporterKeysArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     supporterNumber(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     transferOwnership(
       newOwner: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
   };
 
   buyShares(
     sharesSubject: PromiseOrValue<string>,
-    overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+    overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   getAtMostTopTenSupporters(
     sharesSubject: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[string[], BigNumber]>;
 
-  getBuyPrice(
-    sharesSubject: PromiseOrValue<string>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getBuyPrice(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getBuyPriceAfterFee(
-    sharesSubject: PromiseOrValue<string>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getBuyPriceAfterFee(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
   getPrice(
     supply: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   getSellPrice(
     sharesSubject: PromiseOrValue<string>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   getSellPriceAfterFee(
     sharesSubject: PromiseOrValue<string>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   hodlerFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
@@ -498,109 +348,95 @@ export interface BuilderFiV1 extends BaseContract {
 
   protocolFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
 
-  renounceOwnership(
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+  renounceOwnership(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
   sellShares(
     sharesSubject: PromiseOrValue<string>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+    overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setFeeDestination(
     _feeDestination: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setHodlerFeePercent(
     _feePercent: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setProtocolFeePercent(
     _feePercent: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setSubjectFeePercent(
     _feePercent: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   sharesBalance(
     arg0: PromiseOrValue<string>,
     arg1: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
-  sharesSupply(
-    arg0: PromiseOrValue<string>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  sharesSupply(arg0: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
   subjectFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
 
   supporterAddressArray(
     arg0: PromiseOrValue<string>,
     arg1: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<string>;
 
   supporterKeysArray(
     arg0: PromiseOrValue<string>,
     arg1: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   supporterNumber(
     arg0: PromiseOrValue<string>,
     arg1: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   transferOwnership(
     newOwner: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    buyShares(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    buyShares(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<void>;
 
     getAtMostTopTenSupporters(
       sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string[], BigNumber]>;
 
-    getBuyPrice(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getBuyPrice(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getBuyPriceAfterFee(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getBuyPriceAfterFee(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
     getPrice(
       supply: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getSellPrice(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getSellPriceAfterFee(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     hodlerFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
@@ -616,74 +452,56 @@ export interface BuilderFiV1 extends BaseContract {
     sellShares(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    setFeeDestination(
-      _feeDestination: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setFeeDestination(_feeDestination: PromiseOrValue<string>, overrides?: CallOverrides): Promise<void>;
 
-    setHodlerFeePercent(
-      _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setHodlerFeePercent(_feePercent: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<void>;
 
-    setProtocolFeePercent(
-      _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setProtocolFeePercent(_feePercent: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<void>;
 
-    setSubjectFeePercent(
-      _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setSubjectFeePercent(_feePercent: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<void>;
 
     sharesBalance(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    sharesSupply(
-      arg0: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    sharesSupply(arg0: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
     subjectFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
 
     supporterAddressArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string>;
 
     supporterKeysArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     supporterNumber(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    transferOwnership(
-      newOwner: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    transferOwnership(newOwner: PromiseOrValue<string>, overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
     "OwnershipTransferred(address,address)"(
       previousOwner?: PromiseOrValue<string> | null,
-      newOwner?: PromiseOrValue<string> | null
+      newOwner?: PromiseOrValue<string> | null,
     ): OwnershipTransferredEventFilter;
     OwnershipTransferred(
       previousOwner?: PromiseOrValue<string> | null,
-      newOwner?: PromiseOrValue<string> | null
+      newOwner?: PromiseOrValue<string> | null,
     ): OwnershipTransferredEventFilter;
 
     "Trade(address,address,bool,uint256,uint256,uint256,uint256,uint256,uint256)"(
@@ -695,7 +513,7 @@ export interface BuilderFiV1 extends BaseContract {
       protocolEthAmount?: null,
       subjectEthAmount?: null,
       hodlerEthAmount?: null,
-      supply?: null
+      supply?: null,
     ): TradeEventFilter;
     Trade(
       trader?: null,
@@ -706,47 +524,38 @@ export interface BuilderFiV1 extends BaseContract {
       protocolEthAmount?: null,
       subjectEthAmount?: null,
       hodlerEthAmount?: null,
-      supply?: null
+      supply?: null,
     ): TradeEventFilter;
   };
 
   estimateGas: {
     buyShares(
       sharesSubject: PromiseOrValue<string>,
-      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    getAtMostTopTenSupporters(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getAtMostTopTenSupporters(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getBuyPrice(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getBuyPrice(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getBuyPriceAfterFee(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getBuyPriceAfterFee(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
     getPrice(
       supply: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getSellPrice(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getSellPriceAfterFee(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     hodlerFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
@@ -757,188 +566,171 @@ export interface BuilderFiV1 extends BaseContract {
 
     protocolFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    renounceOwnership(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<BigNumber>;
 
     sellShares(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setFeeDestination(
       _feeDestination: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setHodlerFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setProtocolFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setSubjectFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     sharesBalance(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    sharesSupply(
-      arg0: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    sharesSupply(arg0: PromiseOrValue<string>, overrides?: CallOverrides): Promise<BigNumber>;
 
     subjectFeePercent(overrides?: CallOverrides): Promise<BigNumber>;
 
     supporterAddressArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     supporterKeysArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     supporterNumber(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     buyShares(
       sharesSubject: PromiseOrValue<string>,
-      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     getAtMostTopTenSupporters(
       sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    getBuyPrice(
-      sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getBuyPrice(sharesSubject: PromiseOrValue<string>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getBuyPriceAfterFee(
       sharesSubject: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getPrice(
       supply: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getSellPrice(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getSellPriceAfterFee(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     hodlerFeePercent(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    protocolFeeDestination(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    protocolFeeDestination(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    protocolFeePercent(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    protocolFeePercent(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    renounceOwnership(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
+    renounceOwnership(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<PopulatedTransaction>;
 
     sellShares(
       sharesSubject: PromiseOrValue<string>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setFeeDestination(
       _feeDestination: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setHodlerFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setProtocolFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setSubjectFeePercent(
       _feePercent: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     sharesBalance(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    sharesSupply(
-      arg0: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    sharesSupply(arg0: PromiseOrValue<string>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     subjectFeePercent(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     supporterAddressArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     supporterKeysArray(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     supporterNumber(
       arg0: PromiseOrValue<string>,
       arg1: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

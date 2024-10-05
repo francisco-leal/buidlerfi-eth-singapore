@@ -20,7 +20,7 @@ export async function transferAndCall(
   from: SignerWithAddress,
   to: string,
   amount: BigNumber,
-  data: any
+  data: any,
 ): Promise<any> {
   if (data) {
     return token.connect(from)["transferAndCall(address,uint256,bytes)"](to, amount, data);
